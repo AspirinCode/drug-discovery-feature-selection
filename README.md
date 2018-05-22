@@ -1,6 +1,6 @@
 # Drug Discovery Feature Selections
 
-Virtual screening kandidat obat berbasis machine learning pada database tanaman herbal Indonesia dengan berbagai strategi feature selection
+Virtual screening kandidat obat berbasis machine learning pada database tanaman herbal Indonesia dengan berbagai strategi feature selection (master thesis research of Rahman Pujianto, Universitas Indonesia, 2017).
 
 ## Dataset Preparation Steps
 
