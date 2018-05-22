@@ -1,3 +1,6 @@
 .vscode/
 software/
 virtualenv/
+code/*.json
+code/*.png
+**/__*

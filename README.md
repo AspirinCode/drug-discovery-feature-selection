@@ -1,6 +1,6 @@
 # Drug Discovery Feature Selections
 
-Virtual screening kandidat obat berbasis machine learning pada database tanaman herbal Indonesia dengan berbagai strategi feature selection (master thesis research of Rahman Pujianto, Universitas Indonesia, 2017).
+Master thesis research of Rahman Pujianto, Universitas Indonesia, 2017).
 
 ## Dataset Preparation Steps
 
@@ -37,4 +37,6 @@ Dependency library installation: `pip install -r requirements.txt`
 Steps:
 
 1. Preprocessing `python 01-prepare-data.py`
-1. Feature selection `python 02-feature-selection.py`
+1. Feature selection with SVM-RFE `python 02-feature-selection.py` 
+1. Feature selection with Wrapper Method (GA + SVM) `python 03-feature-selection.py`
+1. Evaluate selected features `python 04-evaluate.py`
