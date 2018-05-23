@@ -47,7 +47,7 @@ for feature_mask_file in feature_mask_files:
     X_test = scaler.transform(X_test)
 
     # evaluate
-    estimator = SVC(kernel='rbf', max_iter=1000, verbose=verbosity)
+    estimator = SVC(kernel='linear', max_iter=1000, verbose=verbosity)
     estimator.fit(X_train, y_train)
     y_pred = estimator.predict(X_test)
     score = accuracy_score(y_test, y_pred)
