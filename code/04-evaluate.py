@@ -8,6 +8,7 @@ import pandas
 import numpy as np
 import json
 import os
+from pprint import pprint
 from sklearn.svm import SVC
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import accuracy_score
@@ -47,7 +48,8 @@ for feature_mask_file in feature_mask_files:
     X_test = scaler.transform(X_test)
 
     # evaluate
-    estimator = SVC(kernel='linear', max_iter=1000, verbose=verbosity)
+    estimator = SVC(kernel='linear', probability=True, max_iter=1000, verbose=verbosity)
+    # estimator = SVC(kernel='linear', max_iter=1000, verbose=verbosity)
     estimator.fit(X_train, y_train)
     y_pred = estimator.predict(X_test)
     score = accuracy_score(y_test, y_pred)
@@ -59,3 +61,5 @@ for feature_mask_file in feature_mask_files:
     print('Feature mask filename: {}'.format(filename))
     print('Accuracy: {}'.format(score))
     print('Feature(s): {}'.format(features))
+    y_pred_proba = estimator.predict_proba(X_test)
+    pprint([max(enumerate(probs), key=lambda p:p[1]) for probs in y_pred_proba])
