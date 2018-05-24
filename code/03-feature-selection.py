@@ -39,7 +39,14 @@ estimator = SVC(kernel='linear', cache_size=1000, max_iter=1000, verbose=verbosi
 selector = GeneticSelectionCV(estimator, n_population=20, n_generations=100, cv=2, caching=True, verbose=verbosity, n_jobs=-1)
 selector = selector.fit(X, y)
 count = (selector.support_ == True).sum()
-print("Optimal number of features : {}".format(count))
+print("Optimal number of features: {}".format(count))
+max_tuples = selector.logbook_.select('max')
+scores, num_feats = zip(*max_tuples)
+print("Average best accuracy: {}".format(max(scores)))
+
+# Note: with full dataset (unbalanced)
+# Optimal number of features: 255
+# Average best accuracy: 0.9962926604107819
 
 # save features mask
 with open(feature_mask_file, 'w') as f:
@@ -47,8 +54,6 @@ with open(feature_mask_file, 'w') as f:
     json.dump(sel_features.tolist(), f)
 
 # plot accuracy per generation
-max_tuples = selector.logbook_.select('max')
-scores, num_feats = zip(*max_tuples)
 plt.figure()
 plt.title('Wrapper Method (GA) Feature Selection')
 plt.xlabel('Generation')

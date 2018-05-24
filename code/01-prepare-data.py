@@ -25,7 +25,8 @@ decoy = decoy.drop_duplicates()
 decoy_subset = decoy.sample(n=jml_drug)
 
 # Menggabungkan kedua dataset dan mengisi nilai yg kosong dengan 0
-dataset = pandas.concat([drug, decoy_subset]).sample(frac=1)
+# dataset = pandas.concat([drug, decoy_subset]).sample(frac=1)
+dataset = pandas.concat([drug, decoy]).sample(frac=1)
 dataset.fillna(value=0, inplace=True)
 herbal.fillna(value=0, inplace=True)
 

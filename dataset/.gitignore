@@ -1,4 +1,4 @@
 *
 !.gitignore
-!dataset.csv
-!dataset_test.csv
+!dataset.tar.gz
+

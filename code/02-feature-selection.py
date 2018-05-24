@@ -48,6 +48,11 @@ svc = SVC(kernel='linear', cache_size=1000, max_iter=1000, verbose=verbosity)
 selector = RFECV(estimator=svc, step=1, cv=StratifiedKFold(2), scoring='accuracy', verbose=verbosity, n_jobs=-1)
 selector.fit(X, y)
 print('Optimal number of features: {}'.format(selector.n_features_))
+print('Average accuracy: {}'.format(max(selector.grid_scores_)))
+# Note: using full (unbalanced) dataset
+# Optimal number of features: 383
+# Average accuracy: 0.9966104289695464
+
 
 # save features mask
 with open(feature_mask_file, 'w') as f:
