@@ -39,7 +39,7 @@ X = scaler.fit_transform(X)
 
 # train SVM 
 # Note: already reach 0.991 (RBF) and 0.990 (Linear)
-svc = SVC(kernel='linear', cache_size=1000, max_iter=1000, verbose=verbosity)
+svc = SVC(kernel='linear', C=0.9, cache_size=1000, max_iter=1000, verbose=verbosity)
 # scores = cross_val_score(svc, X, y, cv=10, n_jobs=-1, verbose=verbosity)
 # print('Mean {}'.format(np.mean(scores)))
 

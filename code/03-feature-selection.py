@@ -35,7 +35,7 @@ scaler = MinMaxScaler()
 X = scaler.fit_transform(X)
 
 # GA feature selection
-estimator = SVC(kernel='linear', cache_size=1000, max_iter=1000, verbose=verbosity)
+estimator = SVC(kernel='linear', C=0.9, cache_size=1000, max_iter=1000, verbose=verbosity)
 selector = GeneticSelectionCV(estimator, n_population=20, n_generations=100, cv=2, caching=True, verbose=verbosity, n_jobs=-1)
 selector = selector.fit(X, y)
 count = (selector.support_ == True).sum()

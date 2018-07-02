@@ -11,7 +11,6 @@ import json
 from sklearn.svm import SVC
 from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
-from sklearn.feature_selection import RFECV
 
 # config
 dataset_file = '../dataset/dataset.csv'
@@ -38,7 +37,7 @@ X = scaler.fit_transform(X)
 # train SVM 
 # Note: already reach 0.991 (RBF) and 0.990 (Linear)
 # Note: using all (unbalanced) data: 0.9967692289459841
-svc = SVC(kernel='linear', cache_size=1000, max_iter=1000, verbose=verbosity)
+svc = SVC(kernel='linear', C=0.9, cache_size=1000, max_iter=1000, verbose=verbosity)
 scores = cross_val_score(svc, X, y, cv=10, n_jobs=-1, verbose=verbosity)
 print('Mean {}'.format(np.mean(scores)))
 

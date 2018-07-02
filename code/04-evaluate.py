@@ -62,4 +62,5 @@ for feature_mask_file in feature_mask_files:
     print('Accuracy: {}'.format(score))
     print('Feature(s): {}'.format(features))
     y_pred_proba = estimator.predict_proba(X_test)
-    pprint([max(enumerate(probs), key=lambda p:p[1]) for probs in y_pred_proba])
+    # print prediction probability (certainty)
+    # pprint([max(enumerate(probs), key=lambda p:p[1]) for probs in y_pred_proba])
