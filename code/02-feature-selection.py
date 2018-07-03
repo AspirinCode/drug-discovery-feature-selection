@@ -45,7 +45,7 @@ svc = SVC(kernel='linear', C=0.9, cache_size=1000, max_iter=1000, verbose=verbos
 
 # SVM-RE feature selection with cross-validation
 # http://scikit-learn.org/stable/auto_examples/feature_selection/plot_rfe_with_cross_validation.html
-selector = RFECV(estimator=svc, step=1, cv=StratifiedKFold(2), scoring='accuracy', verbose=verbosity, n_jobs=-1)
+selector = RFECV(estimator=svc, step=1, cv=StratifiedKFold(10), scoring='accuracy', verbose=verbosity, n_jobs=-1)
 selector.fit(X, y)
 print('Optimal number of features: {}'.format(selector.n_features_))
 print('Average accuracy: {}'.format(max(selector.grid_scores_)))
@@ -53,6 +53,9 @@ print('Average accuracy: {}'.format(max(selector.grid_scores_)))
 # Optimal number of features: 383
 # Average accuracy: 0.9966104289695464
 
+# Note: using 7331 data (balanced) dataset
+# Optimal number of features: 384
+# Average accuracy: 0.9892229313626694
 
 # save features mask
 with open(feature_mask_file, 'w') as f:
