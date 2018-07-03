@@ -1,3 +1,12 @@
+'''
+Get the output files of PaDEL descriptor software and turn them into dataset:
+1. PubChem Active HIV-1 Protease: positive data
+2. Decoys: negative data
+3. HerbalDB (labeled): manually labelled data (positive + negative)
+
+@author yohanes.gultom@gmail.com
+'''
+
 import pandas
 import csv
 

@@ -1,3 +1,12 @@
+'''
+Train 3 classifiers using pubchem hiv+decoy dataset and test it against herbaldb dataset:
+1. SVM
+2. SVM with WM-GA feature selection mask
+3. SVM with SVM-RE feature selection mask
+
+@author yohanes.gultom@gmail.com
+'''
+
 # suppress sklearn warnings
 def warn(*args, **kwargs):
     pass

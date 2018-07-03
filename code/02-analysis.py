@@ -1,3 +1,9 @@
+'''
+Train and test SVM on pubchem hiv+decoy dataset without feature selection
+
+@author yohanes.gultom@gmail.com
+'''
+
 # suppress sklearn warnings
 def warn(*args, **kwargs):
     pass

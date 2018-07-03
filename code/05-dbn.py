@@ -1,3 +1,9 @@
+'''
+Train a DBN using pubchem hiv+decoy dataset and test it against herbaldb dataset
+
+@author yohanes.gultom@gmail.com
+'''
+
 import numpy as np
 import pandas
 import matplotlib.pyplot as plt

@@ -1,3 +1,11 @@
+'''
+Use SVM Recursive Feature Elimination (SVM-RFE) to find an optimal feature set
+on pubchem hiv+decoy dataset. The most optimal feature set is saved in a JSON file.
+
+@author yohanes.gultom@gmail.com
+'''
+
+
 # suppress sklearn warnings
 def warn(*args, **kwargs):
     pass

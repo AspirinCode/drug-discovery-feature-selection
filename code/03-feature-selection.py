@@ -1,3 +1,10 @@
+'''
+Use Wrapper Method (WM) to find an optimal feature set by optimizing an SVM classifier using Genetic Algorithm
+on pubchem hiv+decoy dataset. The most optimal feature set is saved in a JSON file.
+
+@author yohanes.gultom@gmail.com
+'''
+
 # suppress sklearn warnings
 def warn(*args, **kwargs):
     pass
