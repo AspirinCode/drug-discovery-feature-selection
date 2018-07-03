@@ -10,14 +10,14 @@ import json
 import os
 from pprint import pprint
 from sklearn.svm import SVC
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.metrics import accuracy_score
 
 # config
 train_file = '../dataset/dataset.csv'
 test_file = '../dataset/dataset_test.csv'
 feature_mask_files = [None, 'WM_GA_SVM_features_mask.json', 'SVM_RFE_features_mask.json']
-verbosity = 1
+verbosity = 0
 
 # read dataset
 df_train = pandas.read_csv(train_file, index_col=0)
@@ -48,7 +48,7 @@ for feature_mask_file in feature_mask_files:
     X_test = scaler.transform(X_test)
 
     # evaluate
-    estimator = SVC(kernel='linear', probability=True, max_iter=1000, verbose=verbosity)
+    estimator = SVC(kernel='linear', C=0.9, probability=True, max_iter=1000, verbose=verbosity)
     # estimator = SVC(kernel='linear', max_iter=1000, verbose=verbosity)
     estimator.fit(X_train, y_train)
     y_pred = estimator.predict(X_test)
