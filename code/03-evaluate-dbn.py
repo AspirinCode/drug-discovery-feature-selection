@@ -20,8 +20,8 @@ from dbn.tensorflow import SupervisedDBNClassification
 # config
 dataset_file = '../dataset/dataset.csv'
 test_file = '../dataset/dataset_test.csv'
-model_file = 'model.pkl'
-scaler_file = 'scaler.pkl'
+model_file = '03-model.pkl'
+scaler_file = '03-scaler.pkl'
 verbosity = 1
 
 # check if models exist

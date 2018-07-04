@@ -1,6 +1,6 @@
 # Drug Discovery Feature Selections
 
-Master thesis research of Rahman Pujianto, Universitas Indonesia, 2017).
+Master thesis research of Rahman Pujianto, Universitas Indonesia, 2017.
 
 ## Dataset Preparation Steps
 
@@ -37,6 +37,7 @@ Dependency library installation: `pip install -r requirements.txt`
 Steps:
 
 1. Extract preprocessed data from `dataset/dataset.tar.gz` (if you have raw csv data, use `python 01-prepare-data.py`)
-1. Feature selection with SVM-RFE `python 02-feature-selection.py` 
-1. Feature selection with Wrapper Method (GA + SVM) `python 03-feature-selection.py`
-1. Evaluate selected features `python 04-evaluate.py`
+1. No feature selection `python 02-no-feature-selection.py` 
+1. Feature selection with SVM-RFE `python 02-feature-selection-svm-rfe.py` 
+1. Feature selection with Wrapper Method (GA + SVM) `python 02-feature-selection-wm.py`
+1. Evaluate selected features using Indonesian Herbal dataset `python 03-evaluate.py`
