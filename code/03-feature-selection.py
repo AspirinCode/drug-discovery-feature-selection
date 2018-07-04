@@ -13,8 +13,10 @@ warnings.warn = warn
 
 import pandas
 import numpy as np
+import matplotlib
 import matplotlib.pyplot as plt
 import json
+import os
 from sklearn.svm import SVC
 from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
@@ -59,6 +61,10 @@ print("Average best accuracy: {}".format(max(scores)))
 with open(feature_mask_file, 'w') as f:
     sel_features = np.array(feature_names)[selector.support_]
     json.dump(sel_features.tolist(), f)
+
+# check if display available
+if os.name == 'posix' and "DISPLAY" not in os.environ:
+    matplotlib.use('Agg')
 
 # plot accuracy per generation
 plt.figure()
