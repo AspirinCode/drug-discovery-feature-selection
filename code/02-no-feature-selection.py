@@ -1,6 +1,14 @@
 '''
 Train and test SVM on pubchem hiv+decoy dataset without feature selection
 
+Result:
+Mean 0.9927670076383615
+
+Execution Time (Core i7 5500U, 8 GB, SSD):
+real    0m10.212s
+user    0m27.026s
+sys     0m0.739s
+
 @author yohanes.gultom@gmail.com
 '''
 
@@ -20,7 +28,8 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 # config
 dataset_file = '../dataset/dataset.csv'
-verbosity = 1
+# dataset_file = '../dataset/dataset_test.csv' # 0.9807
+verbosity = 0
 
 # read dataset
 df = pandas.read_csv(dataset_file, index_col=0)

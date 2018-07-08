@@ -1,8 +1,10 @@
 # Drug Discovery Feature Selections
 
-Master thesis research of Rahman Pujianto, Universitas Indonesia, 2017.
+Experiment replication of Rahman Pujianto master thesis research (Universitas Indonesia, 2017).
 
-## Dataset Preparation Steps
+## Dataset Preparation
+
+Prepared (trainable) datasets are provided in `dataset/dataset.tar.gz`. Information below are provided as an additional information on how to prepare the dataset from raw sources (`*.sdf` or `.mol2` files).
 
 Required tools:
 
@@ -24,7 +26,7 @@ Extracting test data (unlabeled):
 1. Convert `mol2` tp `csv`: `java -jar PaDEL-Descriptor.jar -2d -addhydrogens -removesalt -dir ../dataset/HerbalDB_mol2/ -file ../dataset/HerbalDB.csv`
 
 
-# Feature Selection
+## Feature Selection
 
 Dependency:
 
@@ -37,7 +39,9 @@ Dependency library installation: `pip install -r requirements.txt`
 Steps:
 
 1. Extract preprocessed data from `dataset/dataset.tar.gz` (if you have raw csv data, use `python 01-prepare-data.py`)
-1. No feature selection `python 02-no-feature-selection.py` 
 1. Feature selection with SVM-RFE `python 02-feature-selection-svm-rfe.py` 
 1. Feature selection with Wrapper Method (GA + SVM) `python 02-feature-selection-wm.py`
-1. Evaluate selected features using Indonesian Herbal dataset `python 03-evaluate.py`
+1. Evaluate selected features using PubChem dataset `python 03-evaluate-1.py`
+1. Evaluate selected features using Indonesian Herbal dataset `python 03-evaluate-2.py`
+
+> Evaluation scripts display accuracy scores in console, save raw results in `csv` files and display result chart(s) to screen

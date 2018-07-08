@@ -4,4 +4,5 @@ virtualenv/
 code/*.json
 code/*.png
 code/*.pkl
+code/*.csv
 **/__*
