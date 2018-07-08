@@ -3,8 +3,8 @@ Use Wrapper Method (WM) to find an optimal feature set by optimizing an SVM clas
 on pubchem hiv+decoy dataset. The most optimal feature set is saved in a JSON file.
 
 Result:
-Optimal number of features: 237
-Average best accuracy: 0.9903138520159797
+Optimal number of features: 249
+Average best accuracy: 0.9916777363585875
 
 Execution Time (Core i7 5500U, 8 GB, SSD):
 real    22m55.660s
@@ -56,7 +56,7 @@ X = scaler.fit_transform(X)
 
 # GA feature selection
 estimator = SVC(kernel='linear', C=0.9, cache_size=1000, max_iter=1000, verbose=verbosity)
-selector = GeneticSelectionCV(estimator, n_population=20, n_generations=100, cv=3, caching=True, verbose=verbosity, n_jobs=-1)
+selector = GeneticSelectionCV(estimator, scoring='accuracy', n_population=20, n_generations=100, cv=3, caching=True, verbose=verbosity, n_jobs=-1)
 selector = selector.fit(X, y)
 count = (selector.support_ == True).sum()
 print("Optimal number of features: {}".format(count))
