@@ -5,14 +5,14 @@ Train 3 classifiers using pubchem hiv+decoy dataset and test it against herbal I
 3. SVM with SVM-RE feature selection mask (output of 02-feature-selection-svm-rfe.py)
 
 Result:
-SVM + RFE Accuracy: 0.6730
-SVM + WM Accuracy: 0.5831
-SVM Accuracy: 0.6730
+SVM + RFE Accuracy: 0.5000
+SVM + WM Accuracy: 0.6000
+SVM Accuracy: 0.5000
 
 Execution Time (Core i7 5500U, 8 GB, SSD):
-real    0m50.462s
-user    0m31.153s
-sys     0m0.825s
+real    0m40.904s
+user    0m33.426s
+sys     0m0.845s
 
 @author yohanes.gultom@gmail.com
 '''
@@ -85,11 +85,11 @@ for method in methods:
     y_pred = np.argmax(y_pred_proba, axis=1)
     
     # accuracy, sensitivity, specificity, precision
-    tn, fp, fn, tp = confusion_matrix(y_test, y_pred).ravel()
+    tn, fp, fn, tp = confusion_matrix(y_test, y_pred, labels=[0, 1]).ravel()
     acc = (tp + tn) * 1.0 / (tp + tn + fp + fn)
-    sens = tp * 1.0 / (tp + fn)
-    spec = tn * 1.0 / (tn + fp)
-    prec = tp * 1.0 / (tp + fp)
+    sens = tp * 1.0 / (tp + fn) if tp > 0 else 0
+    spec = tn * 1.0 / (tn + fp) if tn > 0 else 0
+    prec = tp * 1.0 / (tp + fp) if tp > 0 else 0
 
     # print result
     features = ', '.join(feature_mask) if feature_mask_file else 'All'    
