@@ -25,8 +25,16 @@ Extracting test data (unlabeled):
 
 1. Convert `mol2` tp `csv`: `java -jar PaDEL-Descriptor.jar -2d -addhydrogens -removesalt -dir ../dataset/HerbalDB_mol2/ -file ../dataset/HerbalDB.csv`
 
+## Dataset Description
 
-## Feature Selection
+Datasets provided in this repo:
+
+1. `dataset/dataset.tar.gz`: 
+    1. `dataset.csv`: 3,665 HIV-1 protease inhibitor from PubChem Bioassay + 3,665 protease decoy DUD-E for HIV-1 (Mysinger, Carchia, Irwin, & Shoichet, 2012)
+    1. `dataset_test.csv`: 10 from top 10 protease inhibitor herbal database Indonesia (Yanuar et al., 2014)
+1. `dataset/daftar-senyawa-beserta-binding-energy.csv`: docking results of 368 molecules from herbal database Indonesia (Yanuar et al., 2014) which are predicted as HIV-1 protease inhibitor by machine learning model in this research
+
+## Experiments
 
 Dependency:
 
