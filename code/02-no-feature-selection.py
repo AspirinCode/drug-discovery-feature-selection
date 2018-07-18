@@ -35,7 +35,6 @@ verbosity = 0
 df = pandas.read_csv(dataset_file, index_col=0)
 # get columns with nonzero variance
 df = df.loc[:, df.var() > 0]
-feature_names = list(df[df.columns.drop('Class')])
 
 # split to data X and labels y
 X = df[df.columns.drop('Class')].values.astype('float32')
